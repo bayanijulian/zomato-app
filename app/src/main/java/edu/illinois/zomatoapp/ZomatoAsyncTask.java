@@ -13,7 +13,6 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.nio.charset.Charset;
 
-import edu.illinois.zomatoapp.api.restaurant.Restaurant;
 import edu.illinois.zomatoapp.api.restaurant.RestaurantCollection;
 import edu.illinois.zomatoapp.api.restaurant.RestaurantHolder;
 
@@ -26,6 +25,7 @@ public class ZomatoAsyncTask extends AsyncTask<String, Integer, RestaurantCollec
             URL url = new URL(urls[0]);
 
             URLConnection connection = url.openConnection();
+            connection.setRequestProperty("user-key", "4695ebe6dd338e0cb28f8017424616b4");
             connection.connect();
 
             InputStream inStream = connection.getInputStream();
