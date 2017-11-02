@@ -1,4 +1,4 @@
-package edu.illinois.zomatoapp;
+package edu.illinois.zomatoapp.api;
 
 import java.util.ArrayList;
 import java.util.List;

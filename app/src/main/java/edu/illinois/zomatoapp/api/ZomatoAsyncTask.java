@@ -1,4 +1,4 @@
-package edu.illinois.zomatoapp;
+package edu.illinois.zomatoapp.api;
 
 import android.os.AsyncTask;
 import android.util.Log;
