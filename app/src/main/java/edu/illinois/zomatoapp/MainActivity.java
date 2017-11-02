@@ -1,7 +1,13 @@
 package edu.illinois.zomatoapp;
 
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import java.util.concurrent.ExecutionException;
+
+import edu.illinois.zomatoapp.api.restaurant.Restaurant;
+import edu.illinois.zomatoapp.api.restaurant.RestaurantCollection;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,5 +19,15 @@ public class MainActivity extends AppCompatActivity {
 
         ZomatoAsyncTask zomatoAsyncTask = new ZomatoAsyncTask();
         zomatoAsyncTask.execute(url);
+        try {
+            RestaurantCollection restaurantCollection = zomatoAsyncTask.get();
+            Restaurant[] restaurants = restaurantCollection.getRestaurants();
+            final RestaurantAdapter restaurantAdapter= new RestaurantAdapter(restaurants);
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
     }
 }
