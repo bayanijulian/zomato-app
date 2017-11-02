@@ -27,4 +27,14 @@ public class RestaurantCollection {
     public RestaurantHolder[] getRestaurantHolders() {
         return restaurantHolders;
     }
+
+    public Restaurant[] getRestaurants() {
+        Restaurant[] restaurants = new Restaurant[restaurantHolders.length];
+
+        for (int i = 0; i < restaurantHolders.length; i++) {
+            restaurants[i] = restaurantHolders[i].getRestaurant();
+        }
+
+        return restaurants;
+    }
 }

@@ -52,7 +52,7 @@ public class ZomatoAsyncTask extends AsyncTask<String, Integer, RestaurantCollec
         }
 
         for(RestaurantHolder restaurantHolders : restaurantCollection.getRestaurantHolders()) {
-            Log.d(TAG, "onPostExecute: " + restaurantHolders.getRestaurant().getName());
+            Log.d(TAG, "onPostExecute: " + restaurantHolders.getRestaurant());
         }
     }
 }
