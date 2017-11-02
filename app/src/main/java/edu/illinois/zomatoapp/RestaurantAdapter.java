@@ -28,7 +28,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View restaurantItem = LayoutInflater.from(parent.getContext())
-                                            .inflate(viewType, parent, false);
+                                            .inflate(R.layout.restaurant_item, parent, false);
         return new ViewHolder(restaurantItem);
     }
 
@@ -61,7 +61,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
         return restaurants.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         public View itemView;
         public TextView nameTextView;
         public TextView cuisineTextView;

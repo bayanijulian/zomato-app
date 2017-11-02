@@ -3,6 +3,8 @@ package edu.illinois.zomatoapp;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
 import java.util.concurrent.ExecutionException;
 
@@ -22,7 +24,11 @@ public class MainActivity extends AppCompatActivity {
         try {
             RestaurantCollection restaurantCollection = zomatoAsyncTask.get();
             Restaurant[] restaurants = restaurantCollection.getRestaurants();
-            final RestaurantAdapter restaurantAdapter= new RestaurantAdapter(restaurants);
+            final RestaurantAdapter restaurantAdapter = new RestaurantAdapter(restaurants);
+
+            final RecyclerView restaurantList = (RecyclerView) findViewById(R.id.restaurantList);
+            restaurantList.setAdapter(restaurantAdapter);
+            restaurantList.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
         } catch (InterruptedException e) {
             e.printStackTrace();
