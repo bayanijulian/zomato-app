@@ -25,10 +25,21 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
         this.restaurants.addAll(Arrays.asList(restaurants));
     }
 
+    /**
+     * This function adds more data to view and notifies
+     * the adapter that there is more data.
+     *
+     * @param restaurants the list of restaurants to add
+     */
+    public void addRestaurants(Restaurant[] restaurants) {
+        this.restaurants.addAll(Arrays.asList(restaurants));
+        notifyDataSetChanged();
+    }
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View restaurantItem = LayoutInflater.from(parent.getContext())
-                                            .inflate(R.layout.restaurant_item, parent, false);
+                .inflate(R.layout.restaurant_item, parent, false);
         return new ViewHolder(restaurantItem);
     }
 
@@ -43,13 +54,12 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
 
         String address = restaurant.getLocation().getAddress();
         holder.addressTextView.setText(address);
-
     }
 
-    private String getPriceRangeString(int priceRange){
+    private String getPriceRangeString(int priceRange) {
         StringBuilder priceRangeSymbols = new StringBuilder();
 
-        for(int i = 0; i < priceRange; i++){
+        for (int i = 0; i < priceRange; i++) {
             priceRangeSymbols.append("$");
         }
 
