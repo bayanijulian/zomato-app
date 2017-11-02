@@ -41,8 +41,8 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
         String priceRange = getPriceRangeString(restaurant.getPriceRange());
         holder.priceRangeTextView.setText(priceRange);
 
-        String location = restaurant.getLocation().getAddress();
-        holder.priceRangeTextView.setText(location);
+        String address = restaurant.getLocation().getAddress();
+        holder.addressTextView.setText(address);
 
     }
 
