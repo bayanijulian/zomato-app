@@ -67,4 +67,6 @@ public class Location {
     public String getStateCode() {
         return stateCode;
     }
+
+
 }
