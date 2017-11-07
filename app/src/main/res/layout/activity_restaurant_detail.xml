@@ -10,12 +10,65 @@
         android:id="@+id/restaurantDetailNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="name goes here"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/restaurantDetailCuisinesTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="mexican, american"
+        app:layout_constraintStart_toStartOf="@+id/restaurantDetailNameTextView"
+        app:layout_constraintTop_toBottomOf="@+id/restaurantDetailNameTextView" />
+
+    <TextView
+        android:id="@+id/restaurantDetailPriceRangeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="$$"
+        app:layout_constraintStart_toStartOf="@+id/restaurantDetailCuisinesTextView"
+        app:layout_constraintTop_toBottomOf="@+id/restaurantDetailCuisinesTextView" />
+
+    <TextView
+        android:id="@+id/restaurantDetailLocationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
+        android:layout_marginTop="8dp"
+        android:text="2134 E Green St"
+        app:layout_constraintStart_toStartOf="@+id/restaurantDetailPriceRangeTextView"
+        app:layout_constraintTop_toBottomOf="@+id/restaurantDetailPriceRangeTextView" />
+
+    <TextView
+        android:id="@+id/restaurantDetailAveragePriceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Average Price - 23"
+        app:layout_constraintStart_toEndOf="@+id/restaurantDetailPriceRangeTextView"
+        app:layout_constraintTop_toTopOf="@+id/restaurantDetailPriceRangeTextView" />
+
+    <Button
+        android:id="@+id/restaurantDetailWebsiteBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="website"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/restaurantDetailLocationTextView" />
+
+    <Button
+        android:id="@+id/restaurantDetailMapBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="MAP"
+        app:layout_constraintStart_toEndOf="@+id/restaurantDetailWebsiteBtn"
+        app:layout_constraintTop_toTopOf="@+id/restaurantDetailWebsiteBtn" />
+
 </android.support.constraint.ConstraintLayout>
