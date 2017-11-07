@@ -19,7 +19,7 @@ import edu.illinois.zomatoapp.api.restaurant.Restaurant;
  */
 
 public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.ViewHolder> {
-
+    public static final String EXTRA_RESTAURANT = "edu.illinois.zomatoapp.RESTAURANT";
 
     private List<Restaurant> restaurants;
 
@@ -63,7 +63,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
             public void onClick(View view) {
                 final Context context = view.getContext();
                 Intent restaurantDetailIntent = new Intent(context, RestaurantDetailActivity.class);
-                restaurantDetailIntent.putExtra("restaurant", restaurant);
+                restaurantDetailIntent.putExtra(EXTRA_RESTAURANT, restaurant);
                 context.startActivity(restaurantDetailIntent);
             }
         });
