@@ -11,7 +11,7 @@ import edu.illinois.zomatoapp.api.restaurant.RestaurantCollection;
 
 public class ZomatoApi {
 
-    public static Restaurant[] getRestaurants(int offset){
+    public static Restaurant[] getRestaurants(int offset) {
 
         ZomatoAsyncTask zomatoAsyncTask = new ZomatoAsyncTask();
         zomatoAsyncTask.execute(getUrlFromOffset(offset));
@@ -20,21 +20,19 @@ public class ZomatoApi {
             RestaurantCollection restaurantCollection = zomatoAsyncTask.get();
             return restaurantCollection.getRestaurants();
 
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
 
         return null;
     }
 
-    private static String getUrlFromOffset(int offset){
+    private static String getUrlFromOffset(int offset) {
         ZomatoUrl zomatoUrl = new ZomatoUrl();
         zomatoUrl.addKeyValuePair("entity_id", "685");
         zomatoUrl.addKeyValuePair("entity_type", "city");
         zomatoUrl.addKeyValuePair("start", "" + offset);
-        zomatoUrl.addKeyValuePair("cuisines","73,1");
+        zomatoUrl.addKeyValuePair("cuisines", "73,1");
 
         return zomatoUrl.getUrl();
     }

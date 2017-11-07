@@ -27,4 +27,5 @@ public class MainActivity extends AppCompatActivity {
         restaurantList.setAdapter(restaurantAdapter);
         restaurantList.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
     }
+
 }

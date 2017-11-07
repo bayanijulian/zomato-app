@@ -25,7 +25,7 @@ public class ZomatoAsyncTask extends AsyncTask<String, Integer, RestaurantCollec
             URL url = new URL(urls[0]);
 
             URLConnection connection = url.openConnection();
-            connection.addRequestProperty("user-key", "4695ebe6dd338e0cb28f8017424616b4");
+            connection.addRequestProperty("user-key", ZomatoKey.API_KEY);
 
             connection.connect();
 
