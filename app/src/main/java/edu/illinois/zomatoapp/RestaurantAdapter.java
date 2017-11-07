@@ -1,5 +1,7 @@
 package edu.illinois.zomatoapp;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +19,7 @@ import edu.illinois.zomatoapp.api.restaurant.Restaurant;
  */
 
 public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.ViewHolder> {
+
 
     private List<Restaurant> restaurants;
 
@@ -45,7 +48,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Restaurant restaurant = restaurants.get(position);
+        final Restaurant restaurant = restaurants.get(position);
         holder.nameTextView.setText(restaurant.getName());
         holder.cuisineTextView.setText(restaurant.getCuisines());
 
@@ -54,6 +57,15 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
 
         String address = restaurant.getLocation().getAddress();
         holder.addressTextView.setText(address);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Context context = view.getContext();
+                Intent restaurantDetailIntent = new Intent(context, RestaurantDetailActivity.class);
+                //restaurantDetailIntent.putExtra("restaruant", restaurant);
+            }
+        });
     }
 
     private String getPriceRangeString(int priceRange) {

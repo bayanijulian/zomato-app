@@ -24,8 +24,16 @@ public class MainActivity extends AppCompatActivity {
         final RestaurantAdapter restaurantAdapter = new RestaurantAdapter(restaurants);
         final RecyclerView restaurantList = (RecyclerView) findViewById(R.id.restaurantList);
 
+        LinearLayoutManager linearLayoutManager =
+                new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+
         restaurantList.setAdapter(restaurantAdapter);
-        restaurantList.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        restaurantList.setLayoutManager(linearLayoutManager);
+
+
     }
 
+    private void viewRestaurantDetail(){
+
+    }
 }
