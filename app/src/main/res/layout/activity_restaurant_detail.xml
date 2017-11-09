@@ -21,6 +21,7 @@
 
             <TextView
                 android:id="@+id/restaurantDetailNameTextView"
+                android:textColor="@color/colorText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -32,6 +33,7 @@
 
             <TextView
                 android:id="@+id/restaurantDetailCuisinesTextView"
+                android:textColor="@color/colorText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -45,7 +47,7 @@
                 android:id="@+id/restaurantDetailPriceRangeTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:textColor="@color/colorText"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 card_view:layout_constraintStart_toStartOf="parent"
@@ -53,6 +55,7 @@
 
             <TextView
                 android:id="@+id/restaurantDetailLocationTextView"
+                android:textColor="@color/colorText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -63,6 +66,7 @@
 
             <TextView
                 android:id="@+id/restaurantDetailAveragePriceTextView"
+                android:textColor="@color/colorText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -88,6 +92,7 @@
                 <Button
                     android:id="@+id/restaurantDetailMapBtn"
                     style="?android:attr/buttonBarButtonStyle"
+                    android:textColor="@color/colorText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -98,6 +103,7 @@
                 <Button
                     android:id="@+id/restaurantDetailWebsiteBtn"
                     style="?android:attr/buttonBarButtonStyle"
+                    android:textColor="@color/colorText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

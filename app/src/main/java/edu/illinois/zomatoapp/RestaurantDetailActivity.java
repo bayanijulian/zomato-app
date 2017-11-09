@@ -1,12 +1,14 @@
 package edu.illinois.zomatoapp;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -80,6 +82,8 @@ public class RestaurantDetailActivity extends AppCompatActivity {
         //makes the specified amount of dollar signs bold
         str.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD),
                 START_INDEX, END_INDEX, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        str.setSpan(new ForegroundColorSpan(Color.LTGRAY),
+                END_INDEX, priceRangeTxt.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
         return str;
     }

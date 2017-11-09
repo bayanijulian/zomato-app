@@ -2,9 +2,13 @@ package edu.illinois.zomatoapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,6 +57,9 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
         SpannableStringBuilder priceRange = getPriceRangeString(restaurant.getPriceRange());
         holder.priceRangeTextView.setText(priceRange);
 
+        String address = restaurant.getLocation().getAddress();
+        holder.addressTextView.setText(address);
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,8 +81,10 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
         SpannableStringBuilder str = new SpannableStringBuilder(priceRangeTxt);
 
         //makes the specified amount of dollar signs bold
-        str.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD),
+        str.setSpan(new StyleSpan(Typeface.BOLD),
                 START_INDEX, END_INDEX, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        str.setSpan(new ForegroundColorSpan(Color.LTGRAY),
+                END_INDEX, priceRangeTxt.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
         return str;
     }
@@ -90,6 +99,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
         public TextView nameTextView;
         public TextView cuisineTextView;
         public TextView priceRangeTextView;
+        public TextView addressTextView;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -97,6 +107,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
             this.nameTextView = (TextView) itemView.findViewById(R.id.restaurantNameTextView);
             this.cuisineTextView = (TextView) itemView.findViewById(R.id.restaurantCuisineTextView);
             this.priceRangeTextView = (TextView) itemView.findViewById(R.id.restaurantPriceRangeTextView);
+            this.addressTextView = (TextView) itemView.findViewById(R.id.restaurantAddressTextView);
         }
     }
 }
