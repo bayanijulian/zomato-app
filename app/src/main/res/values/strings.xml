@@ -2,5 +2,5 @@
     <string name="app_name">ZomatoApp</string>
     <string name="restaurant_image_description">Restaurant Image</string>
     <string name="price_range">Price Range - $$$$</string>
-    <string name="average_price_for_two">Average Price for Two - </string>
+    <string name="average_price_for_two">Average Price for Two</string>
 </resources>

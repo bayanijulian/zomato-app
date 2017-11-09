@@ -5,6 +5,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -51,23 +53,35 @@ public class RestaurantDetailActivity extends AppCompatActivity {
     }
 
     private void bindDataToTextViews(Restaurant restaurant) {
-        String averagePrice = "" + restaurant.getAverageCostForTwo();
-
         nameTxt.setText(restaurant.getName());
         cuisineTxt.setText(restaurant.getCuisines());
-        priceRangeTxt.setText(getPriceRangeString(restaurant.getPriceRange()));
+
+
+        SpannableStringBuilder priceRange = getPriceRangeString(restaurant.getPriceRange());
+        priceRangeTxt.setText(priceRange);
+
+        String averagePrice = getString(R.string.average_price_for_two) + " - " +
+                restaurant.getAverageCostForTwo();
         averagePriceTxt.setText(averagePrice);
-        locationTxt.setText(restaurant.getLocation().getAddress());
+
+        String location = restaurant.getLocation().getAddress();
+        locationTxt.setText(location);
     }
 
-    private String getPriceRangeString(int priceRange) {
-        StringBuilder priceRangeSymbols = new StringBuilder();
+    private SpannableStringBuilder getPriceRangeString(int numDollarSigns) {
+        String priceRangeTxt = getString(R.string.price_range);
+        int START_INDEX = priceRangeTxt.indexOf("$");
+        int END_INDEX = START_INDEX + numDollarSigns;
 
-        for (int i = 0; i < priceRange; i++) {
-            priceRangeSymbols.append("$");
-        }
+        //code below derived from
+        //https://stackoverflow.com/questions/14371092/how-to-make-a-specific-text-on-textview-bold
+        SpannableStringBuilder str = new SpannableStringBuilder(priceRangeTxt);
 
-        return priceRangeSymbols.toString();
+        //makes the specified amount of dollar signs bold
+        str.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD),
+                START_INDEX, END_INDEX, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        return str;
     }
 
     private void createButtonListeners(final Restaurant restaurant) {
