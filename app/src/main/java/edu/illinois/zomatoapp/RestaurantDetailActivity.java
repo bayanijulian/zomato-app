@@ -85,6 +85,7 @@ public class RestaurantDetailActivity extends AppCompatActivity {
     }
 
     private void createButtonListeners(final Restaurant restaurant) {
+        //opens zomato website for the restaurant
         websiteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -96,7 +97,7 @@ public class RestaurantDetailActivity extends AppCompatActivity {
                 }
             }
         });
-
+        //opens map for the restaurant
         mapBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

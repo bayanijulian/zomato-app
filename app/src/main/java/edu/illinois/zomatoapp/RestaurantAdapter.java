@@ -3,6 +3,8 @@ package edu.illinois.zomatoapp;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,10 +15,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import edu.illinois.zomatoapp.api.restaurant.Restaurant;
-
-/**
- * Created by bayanijulian on 11/1/17.
- */
 
 public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.ViewHolder> {
     public static final String EXTRA_RESTAURANT = "edu.illinois.zomatoapp.RESTAURANT";
@@ -52,11 +50,8 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
         holder.nameTextView.setText(restaurant.getName());
         holder.cuisineTextView.setText(restaurant.getCuisines());
 
-        String priceRange = getPriceRangeString(restaurant.getPriceRange());
+        SpannableStringBuilder priceRange = getPriceRangeString(restaurant.getPriceRange());
         holder.priceRangeTextView.setText(priceRange);
-
-        String address = restaurant.getLocation().getAddress();
-        holder.addressTextView.setText(address);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,14 +64,20 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
         });
     }
 
-    private String getPriceRangeString(int priceRange) {
-        StringBuilder priceRangeSymbols = new StringBuilder();
+    private SpannableStringBuilder getPriceRangeString(int numDollarSigns) {
+        String priceRangeTxt = ("- $$$$");
+        int START_INDEX = priceRangeTxt.indexOf("$");
+        int END_INDEX = START_INDEX + numDollarSigns;
 
-        for (int i = 0; i < priceRange; i++) {
-            priceRangeSymbols.append("$");
-        }
+        //code below derived from
+        //https://stackoverflow.com/questions/14371092/how-to-make-a-specific-text-on-textview-bold
+        SpannableStringBuilder str = new SpannableStringBuilder(priceRangeTxt);
 
-        return priceRangeSymbols.toString();
+        //makes the specified amount of dollar signs bold
+        str.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD),
+                START_INDEX, END_INDEX, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        return str;
     }
 
     @Override
@@ -89,7 +90,6 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
         public TextView nameTextView;
         public TextView cuisineTextView;
         public TextView priceRangeTextView;
-        public TextView addressTextView;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -97,7 +97,6 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
             this.nameTextView = (TextView) itemView.findViewById(R.id.restaurantNameTextView);
             this.cuisineTextView = (TextView) itemView.findViewById(R.id.restaurantCuisineTextView);
             this.priceRangeTextView = (TextView) itemView.findViewById(R.id.restaurantPriceRangeTextView);
-            this.addressTextView = (TextView) itemView.findViewById(R.id.restaurantAddressTextView);
         }
     }
 }

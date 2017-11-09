@@ -25,7 +25,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:text="name goes here"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 card_view:layout_constraintStart_toStartOf="parent"
@@ -37,7 +36,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:text="mexican, american"
                 android:textSize="18sp"
                 android:textStyle="italic"
                 card_view:layout_constraintStart_toStartOf="parent"
@@ -50,7 +48,6 @@
 
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:text="Price Range - $$$$"
                 card_view:layout_constraintStart_toStartOf="parent"
                 card_view:layout_constraintTop_toBottomOf="@+id/restaurantDetailCuisinesTextView" />
 
@@ -60,7 +57,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:text="2134 E Green St"
                 card_view:layout_constraintBottom_toTopOf="@+id/linearLayout"
                 card_view:layout_constraintStart_toStartOf="parent"
                 card_view:layout_constraintTop_toBottomOf="@+id/restaurantDetailAveragePriceTextView" />
@@ -71,7 +67,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:text="Average Price - 23"
                 card_view:layout_constraintStart_toStartOf="parent"
                 card_view:layout_constraintTop_toBottomOf="@+id/restaurantDetailPriceRangeTextView" />
 
@@ -96,7 +91,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="MAP"
+                    android:text="@string/map"
                     app:layout_editor_absoluteX="216dp"
                     app:layout_editor_absoluteY="141dp" />
 
@@ -106,7 +101,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="website"
+                    android:text="@string/web"
                     app:layout_editor_absoluteX="35dp"
                     app:layout_editor_absoluteY="293dp" />
             </LinearLayout>
