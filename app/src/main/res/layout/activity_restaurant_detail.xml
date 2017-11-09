@@ -9,7 +9,7 @@
     <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/restaurantCardView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="15dp"
         card_view:cardCornerRadius="4dp">
@@ -61,6 +61,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="2134 E Green St"
+                card_view:layout_constraintBottom_toTopOf="@+id/linearLayout"
                 card_view:layout_constraintStart_toStartOf="parent"
                 card_view:layout_constraintTop_toBottomOf="@+id/restaurantDetailAveragePriceTextView" />
 
@@ -75,16 +76,19 @@
                 card_view:layout_constraintTop_toBottomOf="@+id/restaurantDetailPriceRangeTextView" />
 
             <LinearLayout
+                android:id="@+id/linearLayout"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="32dp"
                 android:orientation="horizontal"
                 card_view:layout_constraintBottom_toBottomOf="parent"
                 card_view:layout_constraintEnd_toEndOf="parent"
-                card_view:layout_constraintStart_toStartOf="parent">
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toBottomOf="@+id/restaurantDetailLocationTextView">
 
                 <Button
                     android:id="@+id/restaurantDetailMapBtn"
